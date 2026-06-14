@@ -683,30 +683,27 @@ export default function BluesChordVocab() {
     ? { key: voicingKey, data: variant.voicings[voicingKey] }
     : null;
 
-  // Compute barre fret for moveable shapes
+  // Compute barre fret for moveable shapes — relative to the shape's base string
   const getBarreFret = () => {
     if (!voicing) return null;
     const shape = voicing.key;
-    const barre = voicing.data.barre;
-    if (!barre) return null;
-    if (shape === "moveable_E" || shape === "moveable_A") {
-      return NOTES.indexOf(chordRoot);
+    const base = shape === "moveable_E" ? "E" : shape === "moveable_A" ? "A" : null;
+    if (base) {
+      const b = (NOTES.indexOf(chordRoot) - NOTES.indexOf(base) + 12) % 12;
+      return b === 0 ? 12 : b;   // keep it a fretted barre rather than fret 0
     }
     if (shape === "B_shape") return 2;
-    return barre;
+    return null;
   };
 
   const computedFrets = () => {
     if (!voicing) return [null,null,null,null,null,null];
     const raw = [...voicing.data.frets];
     const shape = voicing.key;
+    if (!shape.startsWith("moveable")) return raw;   // open/fixed shapes render literally
     const barreFret = getBarreFret();
-    if (!barreFret || !shape.startsWith("moveable")) return raw;
-    return raw.map(f => {
-      if (f === null) return null;
-      if (f === 0 || f === -1) return f;
-      return f + barreFret - 1;
-    });
+    if (barreFret == null) return raw;
+    return raw.map(f => (f === null ? null : f - 1 + barreFret)); // raw barre sits at fret 1
   };
 
   const finalFrets = computedFrets();
