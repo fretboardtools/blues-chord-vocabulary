@@ -25,6 +25,8 @@ const NOTES = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
 const FLAT_DISPLAY = {"C#":"C#/Db","D#":"D#/Eb","F#":"F#/Gb","G#":"G#/Ab","A#":"A#/Bb"};
 const displayNote = n => FLAT_DISPLAY[n] || n;
 const addSemi = (note, n) => NOTES[(NOTES.indexOf(note) + n + 120) % 12];
+const TUNING = ["E","A","D","G","B","E"]; // low→high, matches [E2,A2,D3,G3,B3,E4]
+const TONE_SEMI = { R:0, b9:1, "9":2, b3:3, "#9":3, "3":4, "4":5, "11":5, b5:6, "5":7, "6":9, "13":9, b7:10 };
 
 // ─── Chord Voicing Library ────────────────────────────────────────────────────
 // frets: [E2, A2, D3, G3, B3, E4] — null = muted
@@ -624,6 +626,33 @@ export default function BluesChordVocab() {
   const chordRoot = addSemi(selectedKey, roleRootSemis[role]);
   const chordName = (variant?.name || "").replace("{R}", chordRoot);
 
+  // ── Voicing relevance ──────────────────────────────────────────────────────
+  // Pitch classes that make up THIS chord at its actual root.
+  const targetPCs = (() => {
+    const ri = NOTES.indexOf(chordRoot);
+    const set = new Set();
+    (variant?.tones || "").split("·").map(s => s.trim()).forEach(tok => {
+      if (tok in TONE_SEMI) set.add((ri + TONE_SEMI[tok] + 120) % 12);
+    });
+    return set;
+  })();
+
+  // Keep a voicing only if it transposes (a moveable barre shape) or its literal
+  // notes actually spell this chord at this root — every note a chord tone, root present.
+  const isRelevantVoicing = (shape, data) => {
+    if (shape.startsWith("moveable")) return true;
+    const ri = NOTES.indexOf(chordRoot);
+    let hasRoot = false, allTones = true, played = 0;
+    data.frets.forEach((f, i) => {
+      if (f === null || f < 0) return;
+      played++;
+      const pc = (NOTES.indexOf(TUNING[i]) + f + 120) % 12;
+      if (pc === ri) hasRoot = true;
+      if (!targetPCs.has(pc)) allTones = false;
+    });
+    return played > 0 && allTones && hasRoot;
+  };
+
   // Auto-pick the best voicing for this root
   const getAutoVoicing = (voicings) => {
     const openShapes = { E_open:["E","F","F#","G#"], A_open:["A","A#","B"], D_open:["D","D#"], G_open:["G","G#"], Am_open:["A","A#","B"], Em_open:["E","F","F#","G#"], Dm_open:["D","D#"], B_open:["B"], B_shape:["B"] };
@@ -636,10 +665,20 @@ export default function BluesChordVocab() {
     return { key: Object.keys(voicings)[0], data: Object.values(voicings)[0] };
   };
 
-  // Use manually selected voicing if valid for current variant, else auto
-  const voicingKey = selectedVoicingKey && variant?.voicings?.[selectedVoicingKey]
+  const relevantVoicings = variant
+    ? Object.entries(variant.voicings).filter(([s, d]) => isRelevantVoicing(s, d))
+    : [];
+  const autoKey = variant ? getAutoVoicing(variant.voicings).key : null;
+  // Never show an empty list; fall back to the auto pick if nothing matched.
+  const displayVoicings = relevantVoicings.length
+    ? relevantVoicings
+    : (autoKey ? [[autoKey, variant.voicings[autoKey]]] : []);
+  const defaultKey = displayVoicings.length ? displayVoicings[0][0] : null;
+
+  // Use the manual selection only while it's still relevant; otherwise default.
+  const voicingKey = (selectedVoicingKey && displayVoicings.some(([s]) => s === selectedVoicingKey))
     ? selectedVoicingKey
-    : variant ? getAutoVoicing(variant.voicings).key : null;
+    : defaultKey;
   const voicing = variant && voicingKey
     ? { key: voicingKey, data: variant.voicings[voicingKey] }
     : null;
@@ -869,7 +908,7 @@ export default function BluesChordVocab() {
                 <div style={{ marginTop:"12px" }}>
                   <div style={{ fontSize:"10px", fontFamily:"'JetBrains Mono',monospace", color:T.textMute, letterSpacing:"1px", marginBottom:"8px" }}>VOICINGS — tap to switch</div>
                   <div style={{ display:"flex", flexWrap:"wrap", gap:"6px" }}>
-                    {Object.entries(variant.voicings).map(([shape, data]) => {
+                    {displayVoicings.map(([shape, data]) => {
                       const isCurrent = voicingKey === shape;
                       return (
                         <button
