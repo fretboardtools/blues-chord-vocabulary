@@ -44,8 +44,8 @@ const CHORD_SHAPES = {
         A_open:      { frets:[null,0,2,0,2,0],   fingers:"Open A7 — bright and snappy", barre:null },
         D_open:      { frets:[null,null,0,2,1,2], fingers:"Open D7 — sweet and cutting", barre:null },
         G_open:      { frets:[3,2,0,0,0,1],      fingers:"Open G7 — warm, open sound", barre:null },
-        moveable_E:  { frets:[1,3,1,2,1,1],      fingers:"Barre E7 shape — moveable to any root", barre:1 },
-        moveable_A:  { frets:[null,1,3,1,3,1],   fingers:"Barre A7 shape — moveable", barre:1 },
+        moveable_E:  { frets:[1,3,1,2,1,1],      fingers:"Moveable shape — root on the 6th string", barre:1 },
+        moveable_A:  { frets:[null,1,3,1,3,1],   fingers:"Moveable shape — root on the 5th string", barre:1 },
         mid_E:       { frets:[null,null,3,4,3,null], fingers:"Mid-neck shell — R · b7 · 3 (7th pos area)", barre:null },
         jazz_shell:  { frets:[null,null,null,2,2,1], fingers:"Jazz shell voicing — 3rd string down", barre:null },
       },
@@ -57,8 +57,8 @@ const CHORD_SHAPES = {
       voicings: {
         E_open:     { frets:[0,2,0,1,0,2],       fingers:"E9 open — the classic Hendrix shape", barre:null },
         A_open:     { frets:[null,0,2,4,2,3],     fingers:"A9 open — fat funk sound", barre:null },
-        moveable_E: { frets:[1,3,1,2,1,3],        fingers:"Barre E9 shape — full moveable voicing", barre:1 },
-        moveable_A: { frets:[null,1,0,1,1,1],     fingers:"Barre A9 shape — moveable", barre:null },
+        moveable_E: { frets:[1,3,1,2,1,3],        fingers:"Moveable shape — root on the 6th string", barre:1 },
+        moveable_A: { frets:[null,1,0,1,1,1],     fingers:"Moveable shape — root on the 5th string", barre:null },
         top4_9th:   { frets:[null,null,1,2,1,2],  fingers:"Compact 9th — top 4 strings, slides anywhere", barre:null },
         mid_9th:    { frets:[null,null,3,2,3,2],  fingers:"Mid-neck 9th cluster — great at 5th pos", barre:null },
         jazz_9th:   { frets:[null,null,null,3,3,4], fingers:"Jazz 9th shell — upper register", barre:null },
@@ -71,8 +71,8 @@ const CHORD_SHAPES = {
       voicings: {
         E_open:     { frets:[0,2,0,1,0,1],        fingers:"E7b9 open — dark and tense", barre:null },
         A_open:     { frets:[null,0,2,3,2,3],      fingers:"A7b9 open — very bluesy", barre:null },
-        moveable_E: { frets:[1,3,1,2,1,2],         fingers:"Barre E7b9 — moveable", barre:1 },
-        moveable_A: { frets:[null,1,0,1,0,1],      fingers:"Barre A7b9 — moveable", barre:null },
+        moveable_E: { frets:[1,3,1,2,1,2],         fingers:"Moveable shape — root on the 6th string", barre:1 },
+        moveable_A: { frets:[null,1,0,1,0,1],      fingers:"Moveable shape — root on the 5th string", barre:null },
         dim_shape:  { frets:[null,null,1,2,1,2],   fingers:"Diminished-based 7b9 — top 4 strings", barre:null },
         jazz_7b9:   { frets:[null,null,null,2,1,2], fingers:"Jazz 7b9 shell — very compact", barre:null },
         high_7b9:   { frets:[null,null,3,4,3,4],   fingers:"High-neck 7b9 — 7th position area", barre:null },
@@ -85,8 +85,8 @@ const CHORD_SHAPES = {
       voicings: {
         E_open:     { frets:[0,2,0,1,2,2],         fingers:"E13 open — rich and full", barre:null },
         A_open:     { frets:[null,0,2,0,2,2],       fingers:"A13 open — Stevie Ray's favourite territory", barre:null },
-        moveable_E: { frets:[1,3,1,2,3,1],          fingers:"Barre E13 — moveable", barre:1 },
-        moveable_A: { frets:[null,1,3,1,3,3],       fingers:"Barre A13 — moveable", barre:null },
+        moveable_E: { frets:[1,3,1,2,3,1],          fingers:"Moveable shape — root on the 6th string", barre:1 },
+        moveable_A: { frets:[null,1,3,1,3,3],       fingers:"Moveable shape — root on the 5th string", barre:null },
         top4_13:    { frets:[null,null,1,2,2,2],    fingers:"Compact 13th — top 4 strings", barre:null },
         mid_13:     { frets:[null,null,3,4,4,4],    fingers:"Mid-neck 13th — 7th position area", barre:null },
         jazz_13:    { frets:[null,null,null,2,2,4], fingers:"Jazz 13th shell — 3 notes, maximum efficiency", barre:null },
@@ -98,8 +98,8 @@ const CHORD_SHAPES = {
       tones: "R · 3 · b7 · #9",
       voicings: {
         E_open:     { frets:[0,2,0,1,0,3],          fingers:"E7#9 open — classic Hendrix", barre:null },
-        moveable_E: { frets:[1,3,1,2,1,4],        fingers:"Barre E7#9 — any key", barre:1 },
-        moveable_A: { frets:[null,1,0,1,2,null],     fingers:"A7#9 moveable shape", barre:null },
+        moveable_E: { frets:[1,3,1,2,1,4],        fingers:"Moveable shape — root on the 6th string", barre:1 },
+        moveable_A: { frets:[null,1,0,1,2,null],     fingers:"Moveable shape — root on the 5th string", barre:null },
         compact:    { frets:[null,null,1,2,2,3],     fingers:"Compact 7#9 — top 4 strings", barre:null },
         mid_sharp9: { frets:[null,null,3,4,4,5],    fingers:"Mid-neck 7#9 — 7th position area", barre:null },
         jazz_sharp9:{ frets:[null,null,null,2,3,3], fingers:"Jazz 7#9 shell — 3 notes", barre:null },
@@ -117,8 +117,8 @@ const CHORD_SHAPES = {
         E_open:     { frets:[0,2,0,1,0,null],       fingers:"Open E7", barre:null },
         A_open:     { frets:[null,0,2,0,2,0],        fingers:"Open A7", barre:null },
         D_open:     { frets:[null,null,0,2,1,2],     fingers:"Open D7", barre:null },
-        moveable_E: { frets:[1,3,1,2,1,1],           fingers:"Barre E7 shape", barre:1 },
-        moveable_A: { frets:[null,1,3,1,3,1],        fingers:"Barre A7 shape", barre:1 },
+        moveable_E: { frets:[1,3,1,2,1,1],           fingers:"Moveable shape — root on the 6th string", barre:1 },
+        moveable_A: { frets:[null,1,3,1,3,1],        fingers:"Moveable shape — root on the 5th string", barre:1 },
         mid_7:      { frets:[null,null,3,4,3,null],  fingers:"Mid-neck shell — clean and clear", barre:null },
         high_7:     { frets:[null,null,null,2,2,1],  fingers:"High-neck jazz shell", barre:null },
       },
@@ -130,8 +130,8 @@ const CHORD_SHAPES = {
       voicings: {
         A_open:     { frets:[null,0,2,4,2,3],        fingers:"A9 open", barre:null },
         D_open:     { frets:[null,null,0,2,1,0],     fingers:"D9 open voicing", barre:null },
-        moveable_E: { frets:[1,3,1,2,1,3],           fingers:"Barre E9 shape", barre:1 },
-        moveable_A: { frets:[null,1,0,1,1,1],        fingers:"A9 barre shape", barre:null },
+        moveable_E: { frets:[1,3,1,2,1,3],           fingers:"Moveable shape — root on the 6th string", barre:1 },
+        moveable_A: { frets:[null,1,0,1,1,1],        fingers:"Moveable shape — root on the 5th string", barre:null },
         top4_9th:   { frets:[null,null,1,2,1,2],     fingers:"Compact 9th — top 4 strings", barre:null },
         mid_9th:    { frets:[null,null,3,2,3,2],     fingers:"Mid-neck 9th cluster", barre:null },
       },
@@ -144,8 +144,8 @@ const CHORD_SHAPES = {
         A_open:     { frets:[null,0,2,2,3,0],        fingers:"A7sus4 open — classic rock/blues", barre:null },
         E_open:     { frets:[0,2,0,2,0,0],           fingers:"E7sus4 — wide open sound", barre:null },
         D_open:     { frets:[null,null,0,2,3,3],     fingers:"D7sus4 open", barre:null },
-        moveable_A: { frets:[null,1,3,3,4,1],        fingers:"A7sus4 barre shape", barre:1 },
-        moveable_E: { frets:[1,3,1,3,1,1],           fingers:"E7sus4 barre shape", barre:1 },
+        moveable_A: { frets:[null,1,3,3,4,1],        fingers:"Moveable shape — root on the 5th string", barre:1 },
+        moveable_E: { frets:[1,3,1,3,1,1],           fingers:"Moveable shape — root on the 6th string", barre:1 },
         mid_sus4:   { frets:[null,null,3,4,4,null],  fingers:"Mid-neck sus4 — floaty", barre:null },
       },
     },
@@ -156,7 +156,7 @@ const CHORD_SHAPES = {
       voicings: {
         A_open:     { frets:[null,0,2,0,3,0],        fingers:"A11 — open, modal sound", barre:null },
         D_open:     { frets:[null,null,0,2,3,3],     fingers:"D11 — spacious and open", barre:null },
-        moveable_A: { frets:[null,1,3,1,4,1],        fingers:"A11 moveable", barre:1 },
+        moveable_A: { frets:[null,1,3,1,4,1],        fingers:"Moveable shape — root on the 5th string", barre:1 },
         compact:    { frets:[null,null,1,0,1,1],     fingers:"Compact 11th voicing", barre:null },
         mid_11:     { frets:[null,null,3,0,4,3],     fingers:"Mid-neck 11th — very open", barre:null },
       },
@@ -169,8 +169,8 @@ const CHORD_SHAPES = {
         A_open:     { frets:[null,0,2,2,2,2],        fingers:"A6 open — warm and inviting", barre:null },
         E_open:     { frets:[0,2,2,1,2,0],           fingers:"E6 open", barre:null },
         D_open:     { frets:[null,null,0,2,0,2],     fingers:"D6 — sweet and clear", barre:null },
-        moveable_A: { frets:[null,1,3,3,3,3],        fingers:"A6 barre shape", barre:null },
-        moveable_E: { frets:[1,3,3,2,3,1],           fingers:"E6 barre shape", barre:1 },
+        moveable_A: { frets:[null,1,3,3,3,3],        fingers:"Moveable shape — root on the 5th string", barre:null },
+        moveable_E: { frets:[1,3,3,2,3,1],           fingers:"Moveable shape — root on the 6th string", barre:1 },
         mid_6:      { frets:[null,null,3,4,2,null],  fingers:"Mid-neck 6th — clean jazz sound", barre:null },
       },
     },
@@ -186,8 +186,8 @@ const CHORD_SHAPES = {
         E_open:     { frets:[0,2,0,1,0,null],        fingers:"Open E7", barre:null },
         A_open:     { frets:[null,0,2,0,2,0],        fingers:"Open A7", barre:null },
         B_open:     { frets:[null,2,4,2,4,2],        fingers:"B7 open — all over blues in E", barre:2 },
-        moveable_E: { frets:[1,3,1,2,1,1],           fingers:"Barre E7 shape", barre:1 },
-        moveable_A: { frets:[null,1,3,1,3,1],        fingers:"Barre A7 shape", barre:1 },
+        moveable_E: { frets:[1,3,1,2,1,1],           fingers:"Moveable shape — root on the 6th string", barre:1 },
+        moveable_A: { frets:[null,1,3,1,3,1],        fingers:"Moveable shape — root on the 5th string", barre:1 },
         mid_7:      { frets:[null,null,3,4,3,null],  fingers:"Mid-neck V7 shell — crisp turnaround shape", barre:null },
         high_7:     { frets:[null,null,null,2,2,1],  fingers:"High-neck V7 shell — jazz style", barre:null },
       },
@@ -199,8 +199,8 @@ const CHORD_SHAPES = {
       voicings: {
         E_open:     { frets:[0,2,0,1,0,1],           fingers:"E7b9 open", barre:null },
         B_shape:    { frets:[null,2,1,2,1,2],        fingers:"B7b9 barre shape", barre:null },
-        moveable_E: { frets:[1,3,1,2,1,2],           fingers:"E7b9 barre — moveable", barre:1 },
-        moveable_A: { frets:[null,1,0,1,0,1],        fingers:"A7b9 barre — moveable", barre:null },
+        moveable_E: { frets:[1,3,1,2,1,2],           fingers:"Moveable shape — root on the 6th string", barre:1 },
+        moveable_A: { frets:[null,1,0,1,0,1],        fingers:"Moveable shape — root on the 5th string", barre:null },
         dim_based:  { frets:[null,null,1,2,1,2],     fingers:"Diminished-based 7b9 — top 4 strings", barre:null },
         high_7b9:   { frets:[null,null,3,4,3,4],     fingers:"High-neck 7b9 — nasty tension", barre:null },
       },
@@ -212,7 +212,7 @@ const CHORD_SHAPES = {
       voicings: {
         E_open:     { frets:[0,2,0,1,0,2],           fingers:"E9 open", barre:null },
         B_shape:    { frets:[null,2,1,2,2,2],        fingers:"B9 barre — 2nd position", barre:null },
-        moveable_A: { frets:[null,1,0,1,1,1],        fingers:"A9 barre shape", barre:null },
+        moveable_A: { frets:[null,1,0,1,1,1],        fingers:"Moveable shape — root on the 5th string", barre:null },
         compact:    { frets:[null,null,1,2,1,2],     fingers:"Compact 9th — top 4 strings", barre:null },
         mid_9th:    { frets:[null,null,3,2,3,2],     fingers:"Mid-neck 9th cluster", barre:null },
         high_9th:   { frets:[null,null,null,3,3,4],  fingers:"High-neck 9th shell", barre:null },
@@ -225,7 +225,7 @@ const CHORD_SHAPES = {
       voicings: {
         E_open:     { frets:[0,2,0,1,2,2],           fingers:"E13 open", barre:null },
         B_shape:    { frets:[null,2,4,2,4,4],        fingers:"B13 barre — 2nd position", barre:null },
-        moveable_A: { frets:[null,1,3,1,3,3],        fingers:"A13 barre", barre:null },
+        moveable_A: { frets:[null,1,3,1,3,3],        fingers:"Moveable shape — root on the 5th string", barre:null },
         compact:    { frets:[null,null,1,2,2,2],     fingers:"Compact V13 — top 4 strings", barre:null },
         jazz_13:    { frets:[null,null,null,2,2,4],  fingers:"Jazz 13th shell — 3 notes", barre:null },
         high_13:    { frets:[null,null,3,4,4,4],     fingers:"High-neck 13th — 7th position", barre:null },
@@ -238,8 +238,8 @@ const CHORD_SHAPES = {
       voicings: {
         E_open:     { frets:[0,2,0,1,0,3],           fingers:"E7#9 open", barre:null },
         B_shape:    { frets:[null,2,1,2,3,null],     fingers:"B7#9 barre — 2nd position", barre:null },
-        moveable_E: { frets:[1,3,1,2,1,4],        fingers:"Moveable E7#9 barre", barre:1 },
-        moveable_A: { frets:[null,1,0,1,2,null],     fingers:"A7#9 moveable", barre:null },
+        moveable_E: { frets:[1,3,1,2,1,4],        fingers:"Moveable shape — root on the 6th string", barre:1 },
+        moveable_A: { frets:[null,1,0,1,2,null],     fingers:"Moveable shape — root on the 5th string", barre:null },
         compact:    { frets:[null,null,1,2,2,3],     fingers:"Compact 7#9 — top 4 strings", barre:null },
         high_s9:    { frets:[null,null,3,4,4,5],     fingers:"High-neck 7#9 — intense", barre:null },
       },
@@ -256,8 +256,8 @@ const CHORD_SHAPES = {
         Am_open:    { frets:[null,0,2,0,1,0],        fingers:"Am7 open — essential minor blues chord", barre:null },
         Em_open:    { frets:[0,2,2,0,3,0],           fingers:"Em7 open — dark and resonant", barre:null },
         Dm_open:    { frets:[null,null,0,2,1,1],     fingers:"Dm7 open", barre:null },
-        moveable_E: { frets:[1,3,1,1,1,null],        fingers:"Barre Em7 shape — moveable", barre:1 },
-        moveable_A: { frets:[null,1,3,1,2,1],        fingers:"Barre Am7 shape — moveable", barre:1 },
+        moveable_E: { frets:[1,3,1,1,1,null],        fingers:"Moveable shape — root on the 6th string", barre:1 },
+        moveable_A: { frets:[null,1,3,1,2,1],        fingers:"Moveable shape — root on the 5th string", barre:1 },
         mid_m7:     { frets:[null,null,3,4,3,null],  fingers:"Mid-neck minor shell — 7th position", barre:null },
         jazz_m7:    { frets:[null,null,null,3,2,1],  fingers:"Jazz minor shell — top 3 strings", barre:null },
       },
@@ -269,7 +269,7 @@ const CHORD_SHAPES = {
       voicings: {
         Am_open:    { frets:[null,0,2,4,1,3],        fingers:"Am9 open — neo-soul minor blues", barre:null },
         Em_open:    { frets:[0,2,0,0,0,2],           fingers:"Em9 open — beautiful and spacious", barre:null },
-        moveable_E: { frets:[1,3,1,1,1,3],           fingers:"Moveable Em9 shape", barre:1 },
+        moveable_E: { frets:[1,3,1,1,1,3],           fingers:"Moveable shape — root on the 6th string", barre:1 },
         compact:    { frets:[null,null,1,2,1,2],     fingers:"Compact m9 — top 4 strings", barre:null },
         mid_m9:     { frets:[null,null,3,4,3,5],     fingers:"Mid-neck m9 — 7th position area", barre:null },
       },
@@ -281,8 +281,8 @@ const CHORD_SHAPES = {
       voicings: {
         Am_shape:   { frets:[null,0,1,0,1,null],        fingers:"Am7b5 open — haunting", barre:null },
         Em_shape:   { frets:[0,1,2,0,3,0],           fingers:"Em7b5 open", barre:null },
-        moveable_A: { frets:[null,1,2,3,2,null],     fingers:"Moveable m7b5", barre:null },
-        moveable_E: { frets:[1,2,1,1,null,null],        fingers:"E shape m7b5 moveable", barre:null },
+        moveable_A: { frets:[null,1,2,3,2,null],     fingers:"Moveable shape — root on the 5th string", barre:null },
+        moveable_E: { frets:[1,2,1,1,null,null],        fingers:"Moveable shape — root on the 6th string", barre:null },
         mid_hd:     { frets:[null,null,3,4,2,null],  fingers:"Mid-neck half-dim — compact", barre:null },
         high_hd:    { frets:[null,null,null,3,2,3],  fingers:"High-neck half-dim shell", barre:null },
       },
@@ -306,8 +306,8 @@ const CHORD_SHAPES = {
         Am_open:    { frets:[null,0,2,2,1,2],        fingers:"Am6 — bittersweet and distinctive", barre:null },
         Em_open:    { frets:[0,2,2,0,2,0],           fingers:"Em6 open", barre:null },
         Dm_open:    { frets:[null,null,0,2,0,1],     fingers:"Dm6 — sweet and dark", barre:null },
-        moveable_A: { frets:[null,1,3,3,2,3],        fingers:"Moveable m6 barre", barre:1 },
-        moveable_E: { frets:[1,3,3,1,3,1],        fingers:"E shape m6 — moveable", barre:1 },
+        moveable_A: { frets:[null,1,3,3,2,3],        fingers:"Moveable shape — root on the 5th string", barre:1 },
+        moveable_E: { frets:[1,3,3,1,3,1],        fingers:"Moveable shape — root on the 6th string", barre:1 },
         high_m6:    { frets:[null,null,3,4,2,3],     fingers:"High-neck m6 — jazz flavour", barre:null },
       },
     },
@@ -322,8 +322,8 @@ const CHORD_SHAPES = {
       voicings: {
         Am_open:    { frets:[null,0,2,0,1,0],        fingers:"Am7 open shape", barre:null },
         Dm_open:    { frets:[null,null,0,2,1,1],     fingers:"Dm7 open", barre:null },
-        moveable_A: { frets:[null,1,3,1,2,1],        fingers:"Barre Am7 shape", barre:1 },
-        moveable_E: { frets:[1,3,1,1,1,null],        fingers:"Barre Em7 shape", barre:1 },
+        moveable_A: { frets:[null,1,3,1,2,1],        fingers:"Moveable shape — root on the 5th string", barre:1 },
+        moveable_E: { frets:[1,3,1,1,1,null],        fingers:"Moveable shape — root on the 6th string", barre:1 },
         mid_m7:     { frets:[null,null,3,4,3,null],  fingers:"Mid-neck minor shell", barre:null },
         jazz_m7:    { frets:[null,null,null,3,2,1],  fingers:"Jazz minor shell — top 3 strings", barre:null },
       },
@@ -346,8 +346,8 @@ const CHORD_SHAPES = {
       voicings: {
         D_open:     { frets:[null,null,0,2,1,2],     fingers:"D7 open", barre:null },
         A_open:     { frets:[null,0,2,0,2,0],        fingers:"A7 open", barre:null },
-        moveable_A: { frets:[null,1,3,1,3,1],        fingers:"A7 barre shape", barre:1 },
-        moveable_E: { frets:[1,3,1,2,1,1],           fingers:"E7 barre shape", barre:1 },
+        moveable_A: { frets:[null,1,3,1,3,1],        fingers:"Moveable shape — root on the 5th string", barre:1 },
+        moveable_E: { frets:[1,3,1,2,1,1],           fingers:"Moveable shape — root on the 6th string", barre:1 },
         mid_7:      { frets:[null,null,3,4,3,null],  fingers:"Mid-neck shell", barre:null },
         high_7:     { frets:[null,null,null,2,2,1],  fingers:"High-neck jazz shell", barre:null },
       },
@@ -370,7 +370,7 @@ const CHORD_SHAPES = {
       voicings: {
         Dm_open:    { frets:[null,null,0,2,0,1],     fingers:"Dm6 open — haunting", barre:null },
         Am_open:    { frets:[null,0,2,2,1,2],        fingers:"Am6 open", barre:null },
-        moveable_A: { frets:[null,1,3,3,2,3],        fingers:"Moveable m6 barre", barre:1 },
+        moveable_A: { frets:[null,1,3,3,2,3],        fingers:"Moveable shape — root on the 5th string", barre:1 },
         compact:    { frets:[null,null,1,2,2,0],     fingers:"Compact m6 voicing", barre:null },
         high_m6:    { frets:[null,null,3,4,2,3],     fingers:"High-neck m6 — jazz flavour", barre:null },
       },
@@ -707,6 +707,8 @@ export default function BluesChordVocab() {
 
   const finalFrets = computedFrets();
   const barreFret = getBarreFret();
+  // Only draw a barre when the shape is actually a barre chord — not just because it's moveable.
+  const displayBarre = (voicing && voicing.data.barre != null) ? barreFret : null;
 
   return (
     <div style={{ minHeight:"100vh", background:T.bg, color:T.text, fontFamily:"'DM Sans',sans-serif", padding:"24px 18px 48px", transition:"background 0.2s,color 0.2s" }}>
@@ -867,7 +869,7 @@ export default function BluesChordVocab() {
               <div style={{ flexShrink:0 }}>
                 <div style={{ fontSize:"10px", color:T.textMute, fontFamily:"'JetBrains Mono',monospace", letterSpacing:"1px", marginBottom:"8px" }}>VOICING</div>
                 <div style={{ background:T.surface2, borderRadius:"10px", padding:"14px 16px", border:`1px solid ${T.border}`, display:"inline-block" }}>
-                  <ChordDiagram frets={finalFrets} barre={barreFret} rootFret={barreFret||Math.max(0,...finalFrets.filter(f=>f!==null&&f>=0))} accentColor={accentColor} T={T} isDark={isDark}/>
+                  <ChordDiagram frets={finalFrets} barre={displayBarre} rootFret={barreFret||Math.max(0,...finalFrets.filter(f=>f!==null&&f>=0))} accentColor={accentColor} T={T} isDark={isDark}/>
                   <div style={{ marginTop:"8px", fontSize:"11px", color:T.textLo, fontFamily:"'JetBrains Mono',monospace", textAlign:"center", maxWidth:"160px" }}>{voicing?.data?.fingers}</div>
                 </div>
               </div>
