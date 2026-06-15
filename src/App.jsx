@@ -97,9 +97,9 @@ const CHORD_SHAPES = {
       flavor: "The Jimi Hendrix chord. That #9 clashes with the major 3rd for maximum tension. Purple Haze, Foxey Lady — the sound of controlled chaos.",
       tones: "R · 3 · b7 · #9",
       voicings: {
-        E_open:     { frets:[0,2,2,1,3,0],          fingers:"E7#9 open — classic Hendrix", barre:null },
-        moveable_E: { frets:[1,3,3,2,4,null],        fingers:"Barre E7#9 — any key", barre:1 },
-        moveable_A: { frets:[null,1,3,3,3,null],     fingers:"A7#9 moveable shape", barre:1 },
+        E_open:     { frets:[0,2,0,1,0,3],          fingers:"E7#9 open — classic Hendrix", barre:null },
+        moveable_E: { frets:[1,3,1,2,1,4],        fingers:"Barre E7#9 — any key", barre:1 },
+        moveable_A: { frets:[null,1,0,1,2,null],     fingers:"A7#9 moveable shape", barre:null },
         compact:    { frets:[null,null,1,2,2,3],     fingers:"Compact 7#9 — top 4 strings", barre:null },
         mid_sharp9: { frets:[null,null,3,4,4,5],    fingers:"Mid-neck 7#9 — 7th position area", barre:null },
         jazz_sharp9:{ frets:[null,null,null,2,3,3], fingers:"Jazz 7#9 shell — 3 notes", barre:null },
@@ -236,10 +236,10 @@ const CHORD_SHAPES = {
       flavor: "The Hendrix chord as a V — devastating tension before the I resolution. The most dramatic turnaround sound possible.",
       tones: "R · 3 · b7 · #9",
       voicings: {
-        E_open:     { frets:[0,2,2,1,3,0],           fingers:"E7#9 open", barre:null },
-        B_shape:    { frets:[null,2,4,4,4,null],     fingers:"B7#9 barre — 2nd position", barre:2 },
-        moveable_E: { frets:[1,3,3,2,4,null],        fingers:"Moveable E7#9 barre", barre:1 },
-        moveable_A: { frets:[null,1,3,3,3,null],     fingers:"A7#9 moveable", barre:1 },
+        E_open:     { frets:[0,2,0,1,0,3],           fingers:"E7#9 open", barre:null },
+        B_shape:    { frets:[null,2,1,2,3,null],     fingers:"B7#9 barre — 2nd position", barre:null },
+        moveable_E: { frets:[1,3,1,2,1,4],        fingers:"Moveable E7#9 barre", barre:1 },
+        moveable_A: { frets:[null,1,0,1,2,null],     fingers:"A7#9 moveable", barre:null },
         compact:    { frets:[null,null,1,2,2,3],     fingers:"Compact 7#9 — top 4 strings", barre:null },
         high_s9:    { frets:[null,null,3,4,4,5],     fingers:"High-neck 7#9 — intense", barre:null },
       },
@@ -631,9 +631,12 @@ export default function BluesChordVocab() {
   const targetPCs = (() => {
     const ri = NOTES.indexOf(chordRoot);
     const set = new Set();
-    (variant?.tones || "").split("·").map(s => s.trim()).forEach(tok => {
+    const toks = (variant?.tones || "").split("·").map(s => s.trim());
+    toks.forEach(tok => {
       if (tok in TONE_SEMI) set.add((ri + TONE_SEMI[tok] + 120) % 12);
     });
+    // a natural perfect 5th is implied in these voicings unless the chord names an altered 5th
+    if (!toks.includes("b5")) set.add((ri + 7) % 12);
     return set;
   })();
 
